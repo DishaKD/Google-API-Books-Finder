@@ -1,9 +1,47 @@
-export default function Home() {
+"use client";
+
+import React, { useEffect, useState } from "react";
+import BooksGrid from "../app/components/BooksGrid";
+
+interface Book {
+  id: string;
+  title: string;
+  authors: string;
+  isbn: string;
+  thumbnail: string;
+  previewLink: string;
+  pageCount: BigInteger;
+}
+
+const Home = () => {
+  const [books, setBooks] = useState<Book[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/books");
+        const data = await response.json();
+        setBooks(data);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <div className="flex items-center justify-center min-h-screenfont-sans">
-      <main className="w-full max-w-6xl p-6">
-        <h1>Books Finder</h1>
-      </main>
+    <div>
+      <BooksGrid books={books} />
     </div>
   );
-}
+};
+
+export default Home;
