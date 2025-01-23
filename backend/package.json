@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node backend/server.js",
-    "migrate": "node src/database/migration.js",
+    "migrate": "mysql -u root -p < src/database/migration.sql",
     "dev": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
