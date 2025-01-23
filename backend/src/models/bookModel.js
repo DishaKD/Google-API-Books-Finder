@@ -36,4 +36,20 @@ const fetchBooks = async () => {
   return rows;
 };
 
-module.exports = { insertBook, fetchBooks };
+const fetchBookById = async (id) => {
+  const query = `
+    SELECT title, description, authors, isbn_13 
+    FROM books 
+    WHERE id = ?;
+  `;
+
+  const [rows] = await db.query(query, [id]);
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  return rows[0];
+};
+
+module.exports = { insertBook, fetchBooks, fetchBookById };
