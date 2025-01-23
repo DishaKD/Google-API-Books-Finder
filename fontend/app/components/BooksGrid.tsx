@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface Book {
@@ -35,10 +36,10 @@ const BooksGrid: React.FC<BooksGridProps> = ({ books }) => {
             <div className="mt-4 flex justify-between">
               <div>
                 <h3 className="text-sm text-gray-700">
-                  <a href={book.id}>
+                  <Link href={`/books/${book.id}`} passHref>
                     <span aria-hidden="true" className="absolute inset-0" />
                     {book.title}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{book.authors}</p>
               </div>
