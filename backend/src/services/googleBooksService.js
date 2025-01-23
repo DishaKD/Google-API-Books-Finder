@@ -1,11 +1,10 @@
 const axios = require("axios");
 const { insertBook } = require("../models/bookModel");
+require("dotenv").config();
 
 const fetchAndSaveBooks = async () => {
   try {
-    const response = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes?q=api"
-    );
+    const response = await axios.get(process.env.API_URL);
     const books = response.data.items.map((item) => ({
       id: item.id,
       title: item.volumeInfo.title,
