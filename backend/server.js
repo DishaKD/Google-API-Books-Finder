@@ -3,7 +3,7 @@ const fetchAndSaveBooks = require("./src/services/googleBooksService");
 
 const PORT = 5000;
 
-// Run migrations and fetch books on server start
+// fetch books on server start
 fetchAndSaveBooks();
 
 app.listen(PORT, () => {
