@@ -38,7 +38,7 @@ const fetchBooks = async () => {
 
 const fetchBookById = async (id) => {
   const query = `
-    SELECT title, description, authors, isbn_13 
+    SELECT title, description, authors, isbn_13 , thumbnail , publisher , publishedDate, pageCount, categories, language
     FROM books 
     WHERE id = ?;
   `;
