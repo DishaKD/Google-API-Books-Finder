@@ -20,18 +20,18 @@ interface Book {
 }
 
 interface BookDetailProps {
-  params: Promise<{ id: string }>; // `params` is a Promise
+  params: Promise<{ id: string }>;
 }
 
 const BookDetail: React.FC<BookDetailProps> = ({ params }) => {
-  const { id } = use(params); // Unwrap the `params` promise using `React.use()`
+  const { id } = use(params);
 
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return; // Ensure that the id is available before fetching
+    if (!id) return;
 
     const fetchBookDetails = async () => {
       setLoading(true);
