@@ -43,7 +43,7 @@ The backend is built with Node.js and Express and uses MySQL for database manage
    DB_HOST=your-database-host
    DB_USER=your-database-username
    DB_PASSWORD=your-database-password
-   DB_NAME=your-database-
+   DB_NAME=books_db
    PORT = 5000
    ```
 
