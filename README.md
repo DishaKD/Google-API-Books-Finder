@@ -27,45 +27,6 @@ The backend is built with Node.js and Express and uses MySQL for database manage
 - MySQL database integration
 - Environmental variables support using `dotenv`
 
-### Setup
-
-1. **Install Dependencies**:
-
-   ```bash
-   cd backend
-   npm install
-   ```
-
-2. **Environment Variables**:
-   Create a `.env` file in the `backend` directory and add the required variables:
-
-   ```env
-   DB_HOST=your-database-host
-   DB_USER=your-database-username
-   DB_PASSWORD=your-database-password
-   DB_NAME=books_db
-   PORT = 5000
-   ```
-
-3. **Run Migrations**:
-   Ensure your MySQL database is running, then execute:
-
-   ```bash
-   npm run migrate
-   ```
-
-4. **Start the Development Server**:
-   ```bash
-   npm run dev
-   ```
-
-### Scripts
-
-- `start`: Starts the backend server using `nodemon`
-- `migrate`: Executes database migration using `migration.sql`
-- `dev`: Starts the backend server in development mode
-
----
 
 ## Frontend
 
